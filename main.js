@@ -91,6 +91,7 @@ function initializeWidget() {
     destination: 'https://wa.me/1234567890?text=Hello'
   };
   const config = merge(window.PeachWidgetConfig, defaults);
+  console.log("Initializing widget...", config);
   return new PeachWhatsAppWidget(config);
 }
 
