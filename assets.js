@@ -23,6 +23,7 @@ export const styles = `
         position: absolute;
         top: 0px;
         left: 0px;
+        z-index: 999;
         transition: transform .3s ease;
     }
     .widget__hidden {
