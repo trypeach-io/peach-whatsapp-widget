@@ -27,6 +27,7 @@ class PeachWhatsAppWidget {
      */
     const container = document.createElement("div");
     container.style.position = "fixed";
+    container.style.zIndex = "999";
     Object.keys(this.position).forEach(
       (key) => (container.style[key] = this.position[key])
     );
