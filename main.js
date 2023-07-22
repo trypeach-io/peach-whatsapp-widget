@@ -41,10 +41,15 @@ class PeachWhatsAppWidget {
     buttonContainer.target = "_blank";
     buttonContainer.classList.add("button__container");
 
+    const tooltipElement = document.createElement("span");
+    tooltipElement.classList.add("peach-tooltiptext");
+    tooltipElement.innerHTML = "Chat with us";
+    buttonContainer.appendChild(tooltipElement);
     /**
      * Create a span element for the widget icon, give it a class of `widget__icon`, and update its innerHTML property to an icon that would serve as the widget icon.
      */
     const widgetIconElement = document.createElement("span");
+    // <span class="roundicon-tooltiptext">Live Shop</span>
     widgetIconElement.innerHTML = MESSAGE_ICON;
     widgetIconElement.classList.add("widget__icon");
     this.widgetIcon = widgetIconElement;
@@ -74,7 +79,12 @@ class PeachWhatsAppWidget {
 
   injectStyles() {
     const styleTag = document.createElement("style");
-    styleTag.innerHTML = styles.replace(/^\s+|\n/gm, "");
+    var modifiedStyles = "";
+    if (this.config.brandColor) {
+      modifiedStyles = ":root {--brandColor: " + this.config.brandColor + "};\n";
+    }
+    modifiedStyles = modifiedStyles + styles;
+    styleTag.innerHTML = modifiedStyles.replace(/^\s+|\n/gm, "");
     document.head.appendChild(styleTag);
   }
 

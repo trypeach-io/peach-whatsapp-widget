@@ -19,21 +19,42 @@ export const styles = `
     }
     .widget__icon {
         cursor: pointer;
-        width: 100%;
-        position: absolute;
-        top: 0px;
-        left: 0px;
+        width: 60%;
         z-index: 999;
         transition: transform .3s ease;
     }
+
+    .peach-tooltiptext {
+        width: 100%;
+        background: #ffffff;
+        border: 1px solid var(--brandColor);
+        box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.13);
+        color: #3a3a3a;
+        font-size: 14px !important;
+        line-height: 16.72px;
+        font-weight: bold;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-radius: 4px;
+        padding: 5px;
+        animation: peachTooltip-slideUp 1s ease forwards 1s;
+    }
+
     .widget__hidden {
         transform: scale(0);
     }
     .button__container {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        align-items: center;
         border: none;
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         cursor: pointer;
     }
@@ -53,6 +74,17 @@ export const styles = `
         font-weight: 400;
         margin-bottom: 8px;
     }
+
+    @keyframes peachTooltip-slideUp {
+        from {
+          margin-bottom: 20px;
+          opacity: 0;
+        }
+        to {
+          margin-bottom: 0px;
+          opacity: 1;
+        }
+      }
 `;
 
 export const MESSAGE_ICON = `
