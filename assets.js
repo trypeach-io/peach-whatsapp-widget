@@ -19,7 +19,7 @@ export const styles = `
     }
     .widget__icon {
         cursor: pointer;
-        width: 60%;
+        width: 50%;
         z-index: 999;
         transition: transform .3s ease;
     }
@@ -53,7 +53,7 @@ export const styles = `
         text-decoration: none;
         align-items: center;
         border: none;
-        width: 80px;
+        width: 100px;
         height: 80px;
         border-radius: 50%;
         cursor: pointer;

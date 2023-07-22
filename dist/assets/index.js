@@ -19,7 +19,7 @@ var d=Object.defineProperty;var c=(n,t,e)=>t in n?d(n,t,{enumerable:!0,configura
     }
     .widget__icon {
         cursor: pointer;
-        width: 60%;
+        width: 50%;
         z-index: 999;
         transition: transform .3s ease;
     }
@@ -53,7 +53,7 @@ var d=Object.defineProperty;var c=(n,t,e)=>t in n?d(n,t,{enumerable:!0,configura
         text-decoration: none;
         align-items: center;
         border: none;
-        width: 80px;
+        width: 100px;
         height: 80px;
         border-radius: 50%;
         cursor: pointer;
