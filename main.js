@@ -3,6 +3,7 @@ import { styles, CLOSE_ICON, MESSAGE_ICON } from "./assets.js";
 class PeachWhatsAppWidget {
   constructor(config) {
     this.position = this.getPosition(config.position);
+    this.configurations = this.getConfigurations(config);
     this.open = false;
     this.config = config;
     this.initialize();
@@ -12,6 +13,13 @@ class PeachWhatsAppWidget {
   position = "";
   open = false;
   widgetContainer = null;
+
+  getConfigurations(config) {
+    return {
+      includeToolTipText: config.includeToolTipText || false,
+      toolTipText: config.toolTipText || "Chat with us"
+    }
+  }
 
   getPosition(position) {
     const [vertical, horizontal] = position.split("-");
@@ -41,10 +49,12 @@ class PeachWhatsAppWidget {
     buttonContainer.target = "_blank";
     buttonContainer.classList.add("button__container");
 
-    const tooltipElement = document.createElement("span");
-    tooltipElement.classList.add("peach-tooltiptext");
-    tooltipElement.innerHTML = "Chat with us";
-    buttonContainer.appendChild(tooltipElement);
+    if (this.configurations.includeToolTipText) {
+      const tooltipElement = document.createElement("span");
+      tooltipElement.classList.add("peach-tooltiptext");
+      tooltipElement.innerHTML = this.configurations.toolTipText;
+      buttonContainer.appendChild(tooltipElement);
+    }
     /**
      * Create a span element for the widget icon, give it a class of `widget__icon`, and update its innerHTML property to an icon that would serve as the widget icon.
      */
